@@ -1,0 +1,196 @@
+%
+%  untitled
+%
+%  Created by Johan Boissard [] on 2010-06-24.
+%  Copyright (c) Johan Boissard. All rights reserved.
+% hhh
+
+\documentclass[a4paper] {scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{engord}
+%\usepackage[english]{babel}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{comment}
+
+\usepackage{listings}
+
+%allows inclusion of url (hyperref is better than url) 
+%ref: http://www.fauskes.net/nb/latextips/
+\usepackage{hyperref}
+
+%package for chemistry ie: \ce{(NH4)2SO4 -> NH4+ + 2SO4^2-} 
+%ref:www.ctan.org/tex-archive/macros/latex/contrib/mhchem/mhchem.pdf
+\usepackage[version=3]{mhchem}
+%celsius + degrees
+\usepackage{gensymb}
+%to get last page
+\usepackage{lastpage} % \pageref{LastPage}
+
+%make use of the fullpage (no HUGE margins)
+\usepackage{fullpage}
+\usepackage{subfig}
+
+%allows separating cell in table by diagonal line
+\usepackage{slashbox}
+
+
+
+
+%\renewcommand{\chaptername}{Laboratory}
+%\setcounter{chapter}{5}
+
+\usepackage{color}
+\usepackage[usenames,dvipsnames, table]{xcolor}
+% Include this somewhere in your document
+
+
+
+\usepackage[absolute]{textpos}
+
+%column  of multi row in tables
+\usepackage{multirow}
+
+%to have vertical text in table
+\usepackage{rotating}
+
+
+%%%%%%% a virer ici!!!!
+\begin{comment}
+%Fonts and Tweaks for XeLaTeX
+\usepackage{fontspec,xltxtra,xunicode}
+%\defaultfontfeatures{Mapping=tex-text}
+%\setromanfont[Mapping=tex-text]{Hoefler Text}
+\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
+
+\definecolor{shade}{HTML}{D4D7FE}	%light blue shade
+\definecolor{text1}{HTML}{272727}		%text is almost black
+\definecolor{headings}{HTML}{173849} 	%dark blue %%%dark red 70111
+\definecolor{title}{HTML}{173849} 	%dark blue %%%dark red 70111
+
+\usepackage{titlesec}				%custom \section
+\end{comment}
+
+
+
+
+
+
+
+\author{Johan Boissard}
+\date{\today}
+\title{Growth Rates}
+\begin {document}
+
+\maketitle
+%\tableofcontent
+
+
+\section{Definitions of growth rates}
+\subsection{Absolute growth rate}
+\paragraph{Discrete}
+\begin{equation}
+	g_{t} = \frac{\Delta x}{\Delta t}
+\end{equation}
+\paragraph{Continuous} % (fold)
+\label{par:continuousa}
+\begin{equation}
+	g_{t}=\frac{dx}{dt}
+\end{equation}
+% paragraph continuous (end)
+\subsection{Relative growth rate}
+\begin{equation}
+	R = \frac{x_{t}}{x_{t-1}}
+	=
+	1+
+	\frac{
+		g_{1}
+	}{
+		x_{t-1}
+	}
+\end{equation}
+Note: $\Delta t=1$
+
+\subsection{log growth rate}
+This growth rate is the most commonly used in the economic field, most probably because it represents a percentage growth.
+
+\paragraph{Discrete} % (fold)
+\label{par:discrete}
+
+
+\begin{equation}
+	r 
+	= \log{R} 
+	= \log{\left(\frac{x_{t}}{x_{t-1}}\right)}
+	\approx
+	\frac{x_{t}-x_{t-1}}{x_{t}}
+\end{equation}
+% paragraph discrete (end)
+
+\paragraph{Continuous} % (fold)
+\label{par:continuous}
+
+
+\begin{equation}
+	r 
+	= \frac{{\rm d}\log{x}}{{\rm d}t}
+	=
+	\frac{1}{x}\frac{{\rm d}x}{{\rm d}t}
+	=
+	\frac{\dot x}{x}
+\end{equation}
+Note that the following is always true (see section \emph{operator algebra} for more informations)
+\begin{equation}
+	\frac{{\rm d}y}{y}={\rm d}\ln{(y)}
+\end{equation}
+% paragraph continuous (end)
+
+
+\section{Continuously compounded rates}
+
+Usually rates are compounded discretely and have the following form:
+\begin{equation}
+	\left(1+\frac{r}{k}\right)^{(n\cdot k)}
+\end{equation}
+
+Where $r$ is the annual rate, $n$ the number of years and $k$ the frequency (of payment for instance). If the frequency goes towards infinity, we observe the following
+\begin{equation}
+	\lim_{k\rightarrow\infty}\left(1+\frac{r}{k}\right)^{(n\cdot k)} = e^{rn}
+\end{equation} 
+
+\section{Rule of the $70$}
+
+\emph{How many years does it take for an amount to double with rate $r$?}
+
+One can simply answer this question by using the following formula
+\begin{equation}
+	n = \frac{70}{100}r
+\end{equation}
+
+\subsection{Explanation}
+The real formula is
+\begin{equation}
+	(1+r)^n = 2
+\end{equation}
+which solving for $n$ gives
+
+\begin{equation}
+	n = \frac{\log{(2)}}{\log{(1+r)}}
+\end{equation}
+
+As Taylor's expansion of $\ln{(x)}$ around $1$ is
+
+\begin{equation}
+	\ln{(x)} = \sum_{k=1}^n (-1)^{(k+1)}\frac{(x-1)^k}{k}
+\end{equation}
+
+and since $0<r<\frac{1}{10}$ we can keep only the first term, which is $\ln{(x)} =  (x-1)$  and thus $\ln{(1+r)} = r$, which leads to
+
+\begin{equation}
+	n \approx \frac{\ln{(2)}}{r} = \frac{.693...}{r}
+\end{equation}  
+
+
+\end{document}

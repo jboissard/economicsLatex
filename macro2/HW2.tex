@@ -1,0 +1,513 @@
+%
+%  untitled
+%
+%  Created by Johan Boissard [] on 2010-06-24.
+%  Copyright (c) Johan Boissard. All rights reserved.
+% hhh
+
+\documentclass[a4paper] {scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{engord}
+%\usepackage[english]{babel}
+\usepackage{fancyhdr}
+\usepackage{amsmath, amssymb}
+\usepackage{comment}
+
+\usepackage{listings}
+
+%allows inclusion of url (hyperref is better than url) 
+%ref: http://www.fauskes.net/nb/latextips/
+\usepackage{hyperref}
+
+%package for chemistry ie: \ce{(NH4)2SO4 -> NH4+ + 2SO4^2-} 
+%ref:www.ctan.org/tex-archive/macros/latex/contrib/mhchem/mhchem.pdf
+\usepackage[version=3]{mhchem}
+%celsius + degrees
+\usepackage{gensymb}
+%to get last page
+\usepackage{lastpage} % \pageref{LastPage}
+
+%make use of the fullpage (no HUGE margins)
+\usepackage{fullpage}
+\usepackage{subfig}
+
+%allows separating cell in table by diagonal line
+\usepackage{slashbox}
+
+
+
+
+%\renewcommand{\chaptername}{Laboratory}
+%\setcounter{chapter}{5}
+
+\usepackage{color}
+\usepackage[usenames,dvipsnames, table]{xcolor}
+% Include this somewhere in your document
+
+
+
+\usepackage[absolute]{textpos}
+
+%column  of multi row in tables
+\usepackage{multirow}
+
+%to have vertical text in table
+\usepackage{rotating}
+
+
+%%tikz
+\usepackage{tikz}
+\usetikzlibrary{arrows,calc}
+\usepackage{relsize}
+\newcommand\LM{\ensuremath{\mathit{LM}}}
+\newcommand\IS{\ensuremath{\mathit{IS}}}
+
+%%%%%%% a virer ici!!!!
+\begin{comment}
+%Fonts and Tweaks for XeLaTeX
+\usepackage{fontspec,xltxtra,xunicode}
+%\defaultfontfeatures{Mapping=tex-text}
+%\setromanfont[Mapping=tex-text]{Hoefler Text}
+\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
+
+\definecolor{shade}{HTML}{D4D7FE}	%light blue shade
+\definecolor{text1}{HTML}{272727}		%text is almost black
+\definecolor{headings}{HTML}{173849} 	%dark blue %%%dark red 70111
+\definecolor{title}{HTML}{173849} 	%dark blue %%%dark red 70111
+
+\usepackage{titlesec}				%custom \section
+\end{comment}
+
+
+
+
+
+
+
+\author{Johan Boissard - 06-304-679}
+\date{\today}
+\title{MacroEconomics - HWII}
+\begin {document}
+
+\maketitle
+%\tableofcontents
+
+
+%%1
+\section{The $FE$ curve, capital immobility and monetary policy}
+\subsection{ }
+If $\kappa\rightarrow0$, the $FE$ curve becomes
+\begin{equation}
+	\label{eq:FE}
+	i = i^{\text{world}} + \frac{E_{+1}^e-E}{E}
+\end{equation}
+and if $i<i^{\text{world}}$ we have
+\begin{equation}
+	i-i^{\text{world}} = \frac{E_{+1}^e-E}{E} <0
+\end{equation}
+and thus in this case
+\begin{equation}
+	i<i^{\text{world}} \Leftrightarrow E_{+1}^e <E
+\end{equation}
+
+\subsection{ }
+Capital perfectly immobile means $\kappa = 0$ and exchange rates flexible is $OR=0$ and thus $BP=CA+CP=0$.
+
+Under these circumstances, we can rewrite the original $FE$ curve (eq \ref{eq:FE}) setting $\kappa=0$ which leads to
+
+\begin{equation}
+	\label{eq:FEumformed}
+	Y = \frac{x_1}{m_1}Y^{\text{world}}+\frac{m_2+x_2}{m_1}R
+\end{equation}
+and one immediately sees that it is independent from $i$, graphically it is a vertical line in the $i$-$Y$ diagram. 
+
+\subsection{ }
+The $LM$ curve reads
+\begin{equation}
+	i = \frac{k}{h}Y- \frac{1}{h}\overline M 
+\end{equation}
+so an increase in $\overline M$ will drive up the curve: higher $i$ for a given $Y$.
+
+At this point there is a disequilibrium between the three curves and the $(Y_{FE},i_{FE})$ coordinates at which the $LM$ curve crosses the $FE$ are higher than the coordinates where the $LM$ curve crosses the $IS$ curve $(Y_{IS}, Yi_{is})$:
+$\begin{pmatrix}
+	Y_{FE}\\
+	i_{FE}
+\end{pmatrix}
+>
+\begin{pmatrix}
+	Y_{IS}\\
+	i_{IS}
+\end{pmatrix}$
+
+The only way to get back to an equilibrium is for $R$ to change. 
+
+
+If $R$ increase the $IS$ curve will increase by the associated multiplier and the $FE$ curve also increases by its associated multiplier. However the multiplier of the $FE$ curve is greater than the $IS$ one (see section \ref{sec:14}). If $R$ increases, the equilibrium will never be reached because $Y_{FE}$, which is initially bigger than $Y_{IS}$, will always grow more than $Y_{IS}$ and thus the only way to reach an equilibrium is to \textbf{decrease} $R$ and thus the $IS$ curve will decrease a little bit and the $FE$ (which grows faster) will eventually catch-up.
+
+To find the new value of $i$, we first find the equilibrium interest rate $i$ in algebraic terms. We can do so in three steps
+\begin{enumerate}
+	\item Substitute $R$ in the $IS$ curve from the $FE$ curve, see eq \ref{eq:ISFE}
+	\item Substitute $Y$ in the $IS$ curve from the $LM$ curve, see eq \ref{eq:ISLM}.
+	\item an rearrange eq \ref{eq:rearr}
+\end{enumerate}
+
+\begin{eqnarray}
+	\label{eq:ISFE}
+	i &=& -\frac{1-c+m_1}{b}Y+\frac{x_2+m_2}{b}
+	\left(
+	\frac{m_1}{m_2+x_2}Y- \frac{x_1}{m_2+x_2}Y^{\text{world}}
+	\right) 
+	+
+	\frac{\overline I + G + x_1Y^{\text{world}}}{b}
+	\nonumber\\
+	&=&
+	-\frac{1-c}{b}Y
+	+
+	\frac{\overline I + G}{b}
+	\\
+	\label{eq:ISLM}
+	i&=&
+	-\underbrace{\frac{1-c}{b}}_{\epsilon>0}
+	\left(\frac{ih +\overline M}{k}\right)
+	+
+	\underbrace{\frac{\overline I + G}{b}}_{\gamma>0}\\
+	\label{eq:rearr}
+	i &=&
+	\frac{1}{1+\epsilon\frac{h}{k}}
+	\left(
+		\gamma-\epsilon\frac{\overline M}{k}
+	\right)
+\end{eqnarray}
+
+Since $\gamma, \epsilon, h, k>0$ a decrease in $\overline M$ leads to a decrease in $i$.
+
+
+
+\begin{figure}[htbp]
+	\centering
+		
+	
+
+\begin{tikzpicture}[
+        scale=2,
+        IS/.style={blue, thick},
+        LM/.style={red, thick},
+        axis/.style={very thick, ->, >=stealth', line join=miter},
+        important line/.style={thick}, dashed line/.style={dashed, thin},
+        every node/.style={color=black},
+        dot/.style={circle,fill=black,minimum size=4pt,inner sep=0pt,
+            outer sep=-1pt},
+    ]
+    % axis
+    \draw[axis,<->] (2.5,0) node(xline)[right] {$Y$} -|
+                    (0,2.5) node(yline)[above] {$i$};
+	
+	%FE
+	\draw[important line, green, xshift=.1cm]
+     (1.2,0) coordinate (es) -- (1.2,2) coordinate (ee)
+     node [above right] {$FE$};
+
+	%FE
+	\draw[important line, green, xshift=.1cm]
+     (.5,0) coordinate (es) -- (.5,2) coordinate (ee)
+     node [above right] {$FE'$};
+	
+	
+	%LM
+	\draw[important line, red, xshift=.1cm]
+	            (.1,.1) coordinate (es) -- (1.7,2) coordinate (ee)
+	            node [above right] {$LM'$};
+	
+	%LM after shift
+	\draw[important line, red, xshift=.1cm]		         
+	   (.6,.1) coordinate (es) -- (2.3,2) coordinate (ee)
+	   node [above right] {$LM$};
+	
+	%IS
+	\draw[important line, blue, xshift=.1cm]
+	            (.1,2) coordinate (es) -- (1.7,.2) coordinate (ee)
+	            node [above right] {$IS$};
+	
+	
+	%IS
+	\draw[important line, blue, xshift=.1cm]
+	            (.1,1) coordinate (es) -- (1.1,0) coordinate (ee)
+	            node [above right] {$IS'$};
+
+
+	
+	
+
+	
+	\node[dot,label=above:$B$] at (.6,.6) (int1) {};
+	\node[dot,label=above:$A$] at (1.32,.8) (int1) {};
+	
+	\draw[->, very thick, black, >=stealth']
+       (1.5,1) -- (1.2,1.3)
+        node[sloped, above, midway] {$1. \mathsmaller{\Delta M < 0}$};
+\end{tikzpicture}
+\caption{shift caused by a decrease in Money supply: $IS$ and $FE$ respond by shifting to the left ($\Delta R<0$) ultimately leading to a lower $Y$ and a lower $i$, see text for more explanations.}
+\label{fig:ISLM1}
+\end{figure}
+
+\subsection{ }
+\label{sec:14}
+The $FE$-curve reads as in eq \ref{eq:FEumformed} and if we rewrite the $IS$-curve as $Y(i, R)$ we get
+\begin{equation}
+	Y_{IS} = -\frac{b}{1-c+m_1}i 
+	+\frac{m_2+x_2}{1-c+m_1}R
+	+\frac{1}{1-c+m_1}(\overline I+G+x_1Y^{\text{world}})
+\end{equation}
+
+If we now look at the partial derivative of those two curves (the derivative times the difference in $Y$ is the amount by which the curves will be shifted; multiplier) we get
+\begin{eqnarray}
+	\frac{\partial Y_{IS}}{\partial R}&=&\frac{m_2+x_2}{1-c+m_1}\\
+	\frac{\partial Y_{FE}}{\partial R}&=&\frac{m_2+x_2}{m_1}
+\end{eqnarray}
+since $c\in(0,1) \Rightarrow(1-c)\in(0,1)$ and $m_1>0$. We have $1-c+m_1>m_1$ and thus 
+\begin{equation}
+	\frac{\partial Y_{FE}}{\partial R}
+	>
+	\frac{\partial Y_{IS}}{\partial R}
+\end{equation}
+which means that the shift in the $FE$ curve is always going to be larger than the shift in the $IS$ curve.
+
+
+%%% 2
+\section{Economic growth and capital markets}
+
+
+\subsection{ }
+According to the Solow model, at equilibrium we have
+\begin{equation}
+	\Delta K^* = sY -\delta K^* = sF(K^*,L) - \delta K^* = 0
+\end{equation}
+Setting $F=\sqrt{KL}$ and solving for $K^*$ gives
+
+\begin{equation}
+	K^* = \left(\frac{s}{\delta}\right)^2L 
+\end{equation}
+Since country B does not save ($s=0$), its steady capital is $K_B^*=0$ and $Y_B^*=0$ whereas country A has $s=.25$ and $K_A^*=625$ and $Y_A^*=250$.
+Thus the consumptions per capita are
+\begin{eqnarray}
+	c_A =& \frac{Y_A(1-s_a)}{L} =& \frac{250(1-.25)}{100}=1.875\\
+	c_B =& \frac{Y_B(1-s_B)}{L} =& \frac{0(1-0)}{100}=0
+\end{eqnarray}
+
+\subsection{ }
+%page 282
+Since $s_B=0$, all investments will have to be done by country A. 
+At equilibrium both saving rates are the same thus $K=K_B=K_B$.
+
+We can write for the world (note the $\frac{1}{2}$ in front of $Y_B$, this is because we take only the capital income in account)
+\begin{eqnarray}
+	s_a(Y_A(K_A^*)+\frac{1}{2}Y_B(K_B^*))&=&\delta (K_A^*+K_B^*)
+	\\
+	\frac{3}{2}s_a\sqrt{K^*L} &=& 2\delta K^*
+	\\
+	K^*&=&\left(\frac{3}{4}\frac{s_a}{\delta}\right)^2L\nonumber\\ 
+	&=&\left(\frac{3}{4}\frac{.25}{.1}\right)^2 100%\nonumber\\
+	%&=&
+	=351.56
+\end{eqnarray}
+
+Hence $Y_A=Y_B=10\sqrt{351.56}=187.50$.
+
+\subsection{ }
+$GNP$ is the sum of the $GDP$ plus the capital income from abroad minus the capital income generated at home by foreign capital.
+\begin{eqnarray}
+	GNP_A &=& GDP_A + \frac{1}{2}GDP_B\\
+	&=& 187.5 + \frac{1}{2}187.5  = 281.25\\
+	GNP_B &=& GDP_B - \frac{1}{2}GDP_A\\
+	&=& 187.5  - \frac{1}{2}187.5  = 93.75
+\end{eqnarray}
+
+%\subsection{ }
+If we define the consumption level, $c$, as the portion of the GDP that makes consumption (ie $c = C/Y$) so that $c=1-s$, we have
+\begin{eqnarray}
+	c_A &=& 1-s_A = 75\%\\ 
+	c_B &=& 1-s_B = 100\%
+\end{eqnarray}
+
+\subsection{ }
+We see that the sum of the GDPs when there is no trade ($250+0=250$) is smaller as the GDP sum when there is trade ($187.5 +187.5 =375$), so the world aggregate consumption is to be maximized, one has to favor a global capital market. 
+
+When there is a global capital market $K_A$ decreased and since the labour income is defined as half the GDP of A that is in turn increasing with $K$. The higher is $K$ the higher is the labour income, so one does not want to favor global capital market in this case.
+
+\subsection{ }
+As argued above, for wealthy countries (in this problem, country A), globalization decrease the capital and consequently the labor income whereas GNP increases.
+
+%%% 3 %%%
+\section{Disinflation and oil price shocks}
+\subsection{ }
+ We have $Y=Y^*$ and thus substituting this into the $SAS$ curve gives
+\begin{equation}
+	\pi = \underbrace{\pi_{-1}}_{10}+ \underbrace{Y-Y^*}_{0}+10\ln{0.5}
+	=3.069\%
+\end{equation}
+
+
+\subsection{ }
+\label{sec:2}
+If income is to remain at $Y=100$, then the $DAD$ curves becomes ($Y=Y_{-1}$)
+\begin{equation}
+	\pi = \mu
+\end{equation}
+Moreover note that the price of oil has fallen \textbf{permanently} to $.5$ and thus
+\begin{equation}
+	\label{eq:DADOIL}
+	\pi_{\text{OIL}, i}=
+	\ln{P_{\text{OIL}}, i}-\ln{P_{\text{OIL},i-1}}
+	= 0
+\end{equation}
+for $i>1$.
+
+Which leads to the following $SAS$ curve (for $i>1$)
+\begin{equation}
+	\pi_i = \pi_{i-1}
+\end{equation}
+
+For every period the $DAD$ curve adjusts to the $SAS$ curve which gives
+\begin{itemize}
+	\item Period 1:
+	\begin{eqnarray}
+		\pi_1 =& 3.069\%&DAD\\
+		\mu_1 =& \pi_1=3.069\%&SAS
+	\end{eqnarray}
+	\item Period 2:
+	\begin{eqnarray}
+		\pi_2 =& \pi_1=3.069\%&DAD\\
+		\mu_2 =& \pi_2=3.069\%&SAS
+	\end{eqnarray}
+	\item Period 3:
+	\begin{eqnarray}
+		\pi_3 =& \pi_2= 3.069\%&DAD\\
+		\mu_3 =& \pi_3=3.069\%&SAS
+	\end{eqnarray}
+	\item ...
+	\item Period $n$:
+	\begin{eqnarray}
+		\pi_n =& \pi_{n-1}= 3.069\%&DAD\\
+		\mu_n =& \pi_n=3.069\%&SAS
+	\end{eqnarray}
+\end{itemize}
+
+\subsection{ }
+Here we set $\pi_1=0$, 
+and solve
+\begin{equation}
+	0 = 10 + (Y_1-100)-6.9
+\end{equation}
+and find $Y_1=96.6$.
+
+To find $\mu$ we solve
+\begin{equation}
+	0 = \mu -\underbrace{\frac{1}{2}(96.9-100)}_{-1.55}
+\end{equation}
+
+For period $i>1$,eq \ref{eq:DADOIL} applies and the $DAD$ curve becomes ($\pi_i=0$)
+\begin{equation}
+	Y_i=Y^*=100
+\end{equation} 
+note that for $i>2$, the $DAD$ curve becomes ($Y_i = Y_{i-1}$)
+\begin{equation}
+	\mu_i=0
+\end{equation}
+
+Keeping this in mind we find
+\begin{itemize}
+	\item Period 1:
+	\begin{eqnarray}
+		Y_1&=&96.6\\
+		\mu_1 &=& .5(Y_1-Y_{-1}) = -1.55
+	\end{eqnarray}
+	\item Period 2:
+	\begin{eqnarray}
+		Y_2&=&100\\
+		\mu_2 &=& .5(Y_2-Y_{1}) = 1.55
+	\end{eqnarray}
+	\item Period $i>2$:
+	\begin{eqnarray}
+		Y_i&=&100\\
+		\mu_i &=& .5(Y_i-Y_{i-1}) =0
+	\end{eqnarray}
+\end{itemize}
+\subsection{ }
+We have (where $P_{OIL, i}=1$ for $i\neq1$ and $P_{OIL,1}=.5$)
+\begin{eqnarray}
+	\label{eq:log}
+	\pi_{OIL, 1} &= \ln{P_{OIL, 1}}-\ln{P_{OIL, 0}} &=-.69\\
+	\pi_{OIL, 2} &= \ln{P_{OIL, 2}}-\ln{P_{OIL, 1}} &=.69\\
+	\pi_{OIL, i} &= \ln{P_{OIL, i}}-\ln{P_{OIL, i-1}} &=0 \hspace{7 mm}i >2
+\end{eqnarray}
+
+as in \ref{sec:2} $Y_i=Y^*$ for $i\in\mathbb N^+$, we have
+\begin{itemize}
+	\item Period 1:
+	\begin{eqnarray}
+		\pi_1 = \pi_{0} + 10\pi_{OIL, 1}=10-6.9=3.1\\
+		\mu_1 = \pi_1
+	\end{eqnarray}
+	\item Period 2:
+	\begin{eqnarray}
+		\pi_2 = \pi_{1} +  10\pi_{OIL, 2}=3.1+6.9 = 10\\
+		\mu_2 = \pi_2
+	\end{eqnarray}
+	\item Period $i>2$:
+	\begin{eqnarray}
+		\pi_i = \pi_{i-1} +  10\pi_{OIL, i}=10 + 0 = 10\\
+		\mu_i = \pi_i
+	\end{eqnarray}
+\end{itemize}
+
+\subsection{ }
+the sacrifice ratio is defined as
+\begin{equation}
+	\text{Sacrifice ratio} = \frac{\text{total income loss}}{\text{inflation reduction}}
+\end{equation}
+
+if we want to compute this for period $1$ to $3$ the formumla becomes
+\begin{equation}
+	\label{eq:SR}
+	SR = 100\frac{1}{Y^*}\frac{(Y^*-Y_1)+(Y^*-Y_2)+(Y^*-Y_3)}{\pi_0-\pi4}
+\end{equation}
+For the big-leap we have
+\begin{equation}
+	SR = \frac{100}{100}\frac{(100-96.9)+(100-100)+(100-100)}{10} = 0.31
+\end{equation}
+
+Before calculating the $SR$ when price are reduced for one year only, we first have to calculate the different $Y_i$ and $\mu_i$.
+
+Firstly note that eq \ref{eq:log} is still valid and hence we have
+
+\begin{itemize}
+	\item Period 1:
+	\begin{eqnarray}
+		Y_1 &=& 96.9\\
+		\mu_1 &=& .5(Y_1-Y_0) = -1.55
+	\end{eqnarray}
+	\item Period 2:
+	\begin{eqnarray}
+		Y_2 &=& 100 -6.9 = 93.1\\
+		\mu_2 &=& .5(Y_2-Y_1) = -0.95
+	\end{eqnarray}
+	\item Period 3:
+	\begin{eqnarray}
+		Y_3 &=& 100 +0 = 100\\
+		\mu_3 &=& .5(Y_3-Y_2) = 3.45
+	\end{eqnarray}
+	\item Period $i>3$:
+	\begin{eqnarray}
+		Y_i &=& 100 +0 = 100\\
+		\mu_i &=& .5(Y_i-Y_{i-1}) = 0
+	\end{eqnarray}
+\end{itemize}
+
+Now using \ref{eq:SR}, we find when the oil price is only reduced for one year
+\begin{equation}
+	SR = \frac{100}{100}\frac{(100-96.9)+(100-93.1)+(100-100)}{10} = 1.
+\end{equation}
+
+\end{document}

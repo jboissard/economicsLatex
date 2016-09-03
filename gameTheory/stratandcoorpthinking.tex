@@ -1,0 +1,167 @@
+%
+%  untitled
+%
+%  Created by Johan Boissard [] on 2010-06-24.
+%  Copyright (c) Johan Boissard. All rights reserved.
+% hhh
+
+\documentclass[a4paper] {scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{engord}
+%\usepackage[english]{babel}
+\usepackage{fancyhdr}
+\usepackage{amsmath, amssymb}
+\usepackage{comment}
+
+\usepackage{listings}
+
+%allows inclusion of url (hyperref is better than url) 
+%ref: http://www.fauskes.net/nb/latextips/
+\usepackage{hyperref}
+
+%package for chemistry ie: \ce{(NH4)2SO4 -> NH4+ + 2SO4^2-} 
+%ref:www.ctan.org/tex-archive/macros/latex/contrib/mhchem/mhchem.pdf
+\usepackage[version=3]{mhchem}
+%celsius + degrees
+\usepackage{gensymb}
+%to get last page
+\usepackage{lastpage} % \pageref{LastPage}
+
+%make use of the fullpage (no HUGE margins)
+\usepackage{fullpage}
+\usepackage{subfig}
+
+%allows separating cell in table by diagonal line
+\usepackage{slashbox}
+
+
+
+
+%\renewcommand{\chaptername}{Laboratory}
+%\setcounter{chapter}{5}
+
+\usepackage{color}
+\usepackage[usenames,dvipsnames, table]{xcolor}
+% Include this somewhere in your document
+
+
+
+\usepackage[absolute]{textpos}
+
+%column  of multi row in tables
+\usepackage{multirow}
+
+%to have vertical text in table
+\usepackage{rotating}
+
+
+%%%%%%% a virer ici!!!!
+\begin{comment}
+%Fonts and Tweaks for XeLaTeX
+\usepackage{fontspec,xltxtra,xunicode}
+%\defaultfontfeatures{Mapping=tex-text}
+%\setromanfont[Mapping=tex-text]{Hoefler Text}
+\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
+
+\definecolor{shade}{HTML}{D4D7FE}	%light blue shade
+\definecolor{text1}{HTML}{272727}		%text is almost black
+\definecolor{headings}{HTML}{173849} 	%dark blue %%%dark red 70111
+\definecolor{title}{HTML}{173849} 	%dark blue %%%dark red 70111
+
+\usepackage{titlesec}				%custom \section
+\end{comment}
+
+
+
+
+
+
+
+\author{Johan Boissard}
+\date{\today}
+\title{Strategic and Cooperative Thinking}
+\begin {document}
+
+\maketitle
+%\tableofcontents
+
+\section{Static Games of Complete Information}
+
+\paragraph{Complete Information} % (fold)
+\label{par:complete_information}
+Each player's payoff function is common knowledge among all players
+% paragraph complete_information (end)
+
+
+\subsection{Notation}
+\begin{enumerate}
+	\item Set of players: $I=\{1,..,N\}$
+	\item $S_i$ denotes set of strategies for player $i$
+	\item $s_i\in S_i$ denotes an arbitrary strategy of player $i$
+	\item $s=(s_1, ..., s_n)$ denotes a strategy profile
+	\item $s_{-i}=(s_1, ..., s_{i-1}, s_{i+1}, ..., s_n)$: strategy profile exept for player  $i$
+	\item $u_i(s_1, ..., s_n)$ is payoff to player $i$ given strategy profile $(s_1, ..., s_n)$
+\end{enumerate}
+
+\subsection{Normal form representation}
+\begin{itemize}
+	\item Strategy set: $S_1, ..., S_n$
+	\item payoff functions, $u_1, ..., u_n$
+\end{itemize}
+denoted by
+\begin{equation}
+	G_N = \{S_1, ..., S_N;u_1, ..., u_n\}
+\end{equation}
+
+\subsection{Classical Games}
+\subsubsection{Prisoner's dilemma}
+\subsubsection{"Chicken" or "Hawk-Dove" game}
+\subsubsection{Battle of the sexes}
+
+\subsection{Rationality and Common Knowledge}
+\paragraph{Rationality} % (fold)
+\label{par:rationality}
+implies that every player maximizes his utility function
+% paragraph rationality (end)
+
+\paragraph{Common Knowledge} % (fold)
+\label{par:common_knowledge}
+if all the players know the game (mutual knowledge) and that all the players know that all the players know the game.
+% paragraph common_knowledge (end)
+
+
+\subsection{Dominance} 
+when a strategy is better than another.
+
+\paragraph{Strictly dominated} % (fold)
+\label{par:strictly_dominated}
+if
+\begin{equation}
+	u_i(s_i', s_{-i})<u_i(s_i'', s_{-i})
+\end{equation}
+then strategy $s_i'$ is strictly dominated by $s_i''$.
+% paragraph strictly_dominated (end)
+
+\paragraph{Weakly dominated} % (fold)
+\label{par:weakly_dominate}
+\begin{equation}
+	u_i(s_i', s_{-i})\leq u_i(s_i'', s_{-i})
+\end{equation}
+% paragraph weakly_dominate (end)
+
+\subsection{Best Response}
+strategy $s_i$ is a best response if 
+\begin{equation}
+	u_i(s_i, s_{-i})<u_i(s_i', s_{-i})
+\end{equation}
+for every $s_i'\in S_i$
+
+
+\subsection{Nash Equilibrium}
+Strategies $(s_1^*,..., s_n^* )$ are a Nash equilibrium if for each player $i$
+\begin{equation}
+	u_i(s_i^*, s_{-i}^*)<u_i(s_i, s_{-i}^*)
+\end{equation}
+\end{document}

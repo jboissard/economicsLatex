@@ -1,0 +1,796 @@
+%
+%  untitled
+%
+%  Created by Johan Boissard [] on 2010-06-24.
+%  Copyright (c) Johan Boissard. All rights reserved.
+% hhh
+
+\documentclass[a4paper] {scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{engord}
+%\usepackage[english]{babel}
+\usepackage{fancyhdr}
+\usepackage{amsmath, amssymb}
+\usepackage{comment}
+
+\usepackage{listings}
+
+%allows inclusion of url (hyperref is better than url) 
+%ref: http://www.fauskes.net/nb/latextips/
+\usepackage{hyperref}
+
+%package for chemistry ie: \ce{(NH4)2SO4 -> NH4+ + 2SO4^2-} 
+%ref:www.ctan.org/tex-archive/macros/latex/contrib/mhchem/mhchem.pdf
+\usepackage[version=3]{mhchem}
+%celsius + degrees
+\usepackage{gensymb}
+%to get last page
+\usepackage{lastpage} % \pageref{LastPage}
+
+%make use of the fullpage (no HUGE margins)
+\usepackage{fullpage}
+\usepackage{subfig}
+
+%allows separating cell in table by diagonal line
+\usepackage{slashbox}
+
+
+
+
+%\renewcommand{\chaptername}{Laboratory}
+%\setcounter{chapter}{5}
+
+\usepackage{color}
+\usepackage[usenames,dvipsnames, table]{xcolor}
+% Include this somewhere in your document
+
+
+
+\usepackage[absolute]{textpos}
+
+%column  of multi row in tables
+\usepackage{multirow}
+
+%to have vertical text in table
+\usepackage{rotating}
+
+
+%%%%%%% a virer ici!!!!
+\begin{comment}
+%Fonts and Tweaks for XeLaTeX
+\usepackage{fontspec,xltxtra,xunicode}
+%\defaultfontfeatures{Mapping=tex-text}
+%\setromanfont[Mapping=tex-text]{Hoefler Text}
+\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
+
+\definecolor{shade}{HTML}{D4D7FE}	%light blue shade
+\definecolor{text1}{HTML}{272727}		%text is almost black
+\definecolor{headings}{HTML}{173849} 	%dark blue %%%dark red 70111
+\definecolor{title}{HTML}{173849} 	%dark blue %%%dark red 70111
+
+\usepackage{titlesec}				%custom \section
+\end{comment}
+
+
+
+
+
+
+
+\author{Johan Boissard}
+\date{\today}
+\title{MicroEconomics}
+\begin {document}
+
+\maketitle
+%\tableofcontents
+
+\section{Introduction}
+
+\paragraph{Two Basic Postulates} % (fold)
+\label{par:two_basic_postulates}
+\begin{itemize}
+	\item Rational Choices
+	\item Equilibrium
+\end{itemize}
+% paragraph two_basic_postulates (end)
+
+
+\paragraph{Pareto Efficiency} % (fold)
+\label{par:pareto_efficiency}
+allows no "wasted warfare"
+% paragraph pareto_efficiency (end)
+
+\subsection{Comptetitive Equilibrium}
+$p_e$
+\subsection{Monopoly}
+Pareto inefficient $\Leftarrow$ not all appartments are rent
+
+\subsection{Rent control}
+Pareto inefficient
+
+
+\section{Budget Set}
+\subsection{Budget Constraints}
+bundle $(x_1, ..., x_n)$ affordable at price $\mathbf{p}=(p_1, ..., p_n)$ when
+\begin{equation}
+	\mathbf{p}\cdot \mathbf{x}=p_1x_1+...+p_nx_n\leq m
+\end{equation}
+$m$ is the consumer's (disposable) income
+
+\subsubsection{Budget Constraint}
+\begin{equation}
+	\{(\mathbf{x})|\mathbf{x}\geq0 \text{ and } \mathbf{p}\cdot \mathbf{x}=m\}
+\end{equation}
+
+\subsubsection{Budget Set}
+\begin{equation}
+	B(\mathbf{p}, m)=\{(\mathbf{x})|\mathbf{x}\geq0 \text{ and } \mathbf{p}\cdot \mathbf{x}\leq m\}
+\end{equation}
+
+
+\subsection{Uniform \emph{Ad Valorem} Sales Taxes}
+\begin{equation}
+	(1+t)\mathbf{p}\cdot \mathbf{x}\leq m
+\end{equation}
+tax levied at rate $t$.
+
+\section{Preferences and Utility Functions}
+
+\subsection{Preference Relations}
+\begin{equation}
+	x\succeq y \Leftrightarrow U(x)\geq U(y)
+\end{equation}
+
+\subsection{Non-unicity of utility function}
+Two utility functions represent the same preference relation if and only if there exists an increasing function $\phi$ such that
+\begin{equation}
+	U = \phi(V)
+\end{equation}
+
+
+\subsection{Marginal Rate of Substitution}
+
+\begin{equation}
+	MRS = -\frac{dx_2}{dx_1}
+\end{equation}
+rate at which consumer is willing to exchange commodity 2 for commodity 1.
+
+Utility, however remains constant $du=0$, taking the total derivative
+\begin{eqnarray}
+	du &=& 0\nonumber\\
+	&=&\frac{\partial u}{\partial x_1}dx_1+\frac{\partial u}{\partial x_2}dx_2
+\end{eqnarray}
+Leads to
+\begin{equation}
+	MRS = -\frac{dx_2}{dx_1} = \frac{\frac{\partial u}{\partial x_1}}{\frac{\partial u}{\partial x_2}}
+\end{equation}
+
+\subsection{Cobb-Doublas}
+La fonction d'utilité de Cobb-Doublas est la suivante
+\begin{equation}
+	U (x,y) = x^ay^b
+\end{equation}
+Par transformation monotone, on a
+\begin{equation}
+	V(x,y) = a\ln{(x)}+ b \ln{(y)}
+\end{equation}
+
+The Marginal utility is
+\begin{eqnarray}
+	\frac{\partial U}{\partial x_1} &= ax^{a-1}y^b\\ 
+	\frac{\partial U}{\partial x_2} &= bx^{a}y^{b-1}
+\end{eqnarray}
+Hence, the marginal rate of substitution is
+\begin{equation}
+	MRS = \frac{a}{b}\frac{y}{x}
+\end{equation}
+Note that the $MRS$ is always the same for any utility function ($U$ or $V$) satisfying the same preference relations.
+
+\section{Consumer Behavior}
+\subsection{Consumer Problem}
+\begin{equation}
+	\max U( \mathbf{x})
+\end{equation}
+s.t.
+\begin{equation}
+	\mathbf{p}\cdot \mathbf{x}\leq m
+\end{equation}
+
+
+\subsection{Kuhn-Tucker theorem}
+Consider the maximization problem
+\begin{equation}
+	\max f( \mathbf{x})
+\end{equation}
+subject to
+\begin{equation}
+	g_i( \mathbf{x})\leq 0; i=1.. k
+\end{equation}
+Note that $f, g_i: \mathbb R^n\rightarrow \mathbb R$.
+
+Then for a solution $\mathbf{x^*}$ to the maximization problem there exists Kuhn-Tucker multipliers $\lambda_1,...,\lambda_n\in\mathbb R$ such that
+
+\begin{eqnarray}
+	\nabla f( \mathbf{x^*})&=& \sum_{i=1}^k \lambda_i\nabla g_i( \mathbf{x^*})\\
+	\lambda_i&\geq&0 \forall i\\
+	\lambda &=& 0 \text{ if } g_i( \mathbf{x^*})<0
+\end{eqnarray}
+
+\subsection{Perfect Substitutes Case}
+\begin{equation}
+	MRS = -1
+\end{equation}
+\subsection{Corner Solutions}
+Corner solutions, as their name implies, are solutions that are located in a corner, mathematically
+\begin{eqnarray}
+	x_i&= \frac{m}{p_1}
+	\\
+	x_j &= 0 &i\neq j
+\end{eqnarray}
+
+\subsection{Maximization problem with Cobb-Doublas}
+
+We wanna solve
+\begin{equation}
+	\max U = a\ln{(x_1)} + b\ln{(x_2)}
+\end{equation}
+s.t. $g=p_1x+p_2x_2=m$
+
+We use Kuhn-Tucker
+\begin{eqnarray}
+	\nabla U &=& \sum \lambda_i\nabla g_i\\
+	\begin{pmatrix}
+		\frac{a}{x_1^*}\\\frac{b}{x_2^*} 
+	\end{pmatrix}
+	&=& \lambda_1 
+	\begin{pmatrix}
+		p_1\\p_2
+	\end{pmatrix}
+\end{eqnarray}
+Hence
+\begin{eqnarray}
+	x_1^* &= \frac{c}{d}\frac{p_2}{p_1}x_2\\
+	&= \frac{c}{c+d}\frac{m}{p_1}\\
+	x_2^*&= \frac{d}{c+d}\frac{m}{p_2}
+\end{eqnarray}
+
+
+\section{Dual Approaches to Consumer Behavior}
+
+Two ways of modeling rational consumer behavior
+\begin{itemize}
+	\item utility maximization
+	\item expenditure maximization
+\end{itemize}
+
+\subsection{Utility Maximization}
+\begin{eqnarray}
+	\max U( \mathbf{x}) &\text{s.t.}& \mathbf{p}\cdot \mathbf{x}= m
+\end{eqnarray}
+
+\paragraph{Marshallian demand function} % (fold)
+\label{par:marshallian_demand_function}
+\begin{equation}
+	(\mathbf{p}, m)\rightarrow \mathbf{x}(\mathbf{p}, m)
+\end{equation}
+is called the \textbf{Marshallian demand function}
+% paragraph marshallian_demand_function (end)
+
+\subparagraph{Indirect Utility function} % (fold)	
+\label{par:indirect_utility_function}
+\begin{equation}
+	v(\mathbf{p}, m) = U(\mathbf{x}(\mathbf{p}, m))
+\end{equation}
+% paragraph indirect_utility_function (end)
+
+
+\subsection{Expenditure Minimization}
+\begin{eqnarray}
+	\min \mathbf{p}\cdot \mathbf{h} &\text{s.t.}&
+	U(\mathbf{h})\geq u
+\end{eqnarray}
+
+\paragraph{Hicksian demand function} % (fold)
+\label{par:hicksian}
+(or compensated demand)
+\begin{equation}
+	(\mathbf{p}, u)\rightarrow \mathbf{h}(\mathbf{p}, u)
+\end{equation}
+% paragraph hicksian (end)
+
+\paragraph{Expenditure function} % (fold)
+\label{par:expenditure_function}
+\begin{equation}
+	(\mathbf{p},u)\rightarrow e(\mathbf{p}, u) = \underbrace{\mathbf{p}\cdot \mathbf{h}(\mathbf{p},u)}_{m}
+\end{equation}
+% paragraph expenditure_function (end)
+
+\subsubsection{Relation between Hicksian and Marshallian demand function}
+\begin{equation}
+	\mathbf{h}(\mathbf{p}, u)=\mathbf{x}(\mathbf{p}, e(\mathbf{p}, u))
+\end{equation}
+
+
+\subsection{Duality}
+The following is true
+\begin{itemize}
+	\item Utility maximization $\Leftrightarrow$ Expenditure minimization
+	\item Utility minimization $\Leftrightarrow$ Expenditure maximization
+\end{itemize}
+
+\subsection{Properties of Marshallian demand function}
+
+\begin{itemize}
+	\item Homogeneity: $\mathbf{x}(\lambda\mathbf{ p}, \lambda m) = \lambda\mathbf{x}(\mathbf{p}, m)$
+	\item Additivity: $\mathbf{p}\cdot \mathbf{x} = m$
+	\item Symmetry: see Slutsky
+	\item $\mathbf{x}(\mathbf{p}, m)$ is 
+	\begin{itemize}
+		\item increasing in $m$ for \textbf{normal goods}
+		\item decreasing in $m$ for \textbf{inferior goods}
+		\item increasing in $\mathbf{p}$ for \textbf{ordinary goods}
+		\item decreasing in $\mathbf{p}$ for \textbf{Giffen goods}
+	\end{itemize}
+	
+\end{itemize}
+
+
+\subsection{Properties of Hicksian demand function}
+\begin{itemize}
+	\item Homogeneity: $\mathbf{h}(\lambda \mathbf{p}, u) = \lambda \mathbf{h}(\mathbf{p},u)$
+	\item $U(\mathbf{h}(\mathbf{p},u))=u$
+	\item Symmetry: see Slutsky
+	\item Monotonicity: $\mathbf{h}(\mathbf{p}, u)$ is decreasing in $\mathbf{p}$
+\end{itemize}
+
+
+\subsection{Roy's Identity}
+For any good $i$ we have
+\begin{eqnarray}
+	x_i(\mathbf{p}, m) = -\frac{\frac{\partial v(\mathbf{p},m)}{\partial p_i}}{\frac{\partial v(\mathbf{p},m)}{\partial m}}
+\end{eqnarray}
+
+\begin{eqnarray}
+	h_i(\mathbf{p},u) = \frac{\partial e(\mathbf{p},u)}{\partial p_i}
+\end{eqnarray}
+
+
+\subsection{Slutsky matrix}
+\begin{equation}
+	S = (S_{ij}) = \left(\frac{\partial h_i}{\partial p_j}\right)
+\end{equation}
+Using Roy's identity, one can write
+\begin{equation}
+	(S_{ij}) = \left(\frac{\partial^2 e(\mathbf{p},u)}{\partial p_i\partial p_j}\right)
+\end{equation}
+
+\begin{equation}
+	S\cdot \mathbf{p} = \sum_j S_{ij}p_j = \sum_j \frac{\partial h_i}{\partial p_j}p_j = 0
+\end{equation}
+
+\subsection{Slutsky Relations}
+\begin{eqnarray}
+	S_{ij} &=& \frac{\partial h_i}{\partial p_j}\\
+	&=& \frac{\partial x_i}{\partial p_j}
+	+\frac{\partial e}{\partial p_j}\frac{\partial x_i}{\partial e}\\
+	&=& \frac{\partial x_i}{\partial p_j}
+	+h_j\frac{\partial x_i}{\partial e}\\
+	&=& \frac{\partial x_i}{\partial p_j}
+	+x_j\frac{\partial x_i}{\partial m}
+\end{eqnarray}
+
+and therefore we get the Slutsky relations
+
+\begin{equation}
+	\frac{\partial x_i}{\partial p_j}
+	+x_j\frac{\partial x_i}{\partial m}
+	=
+	\frac{\partial x_j}{\partial p_i}
+	+x_i\frac{\partial x_j}{\partial m}
+\end{equation}
+
+\subsubsection{Interpretation}
+\begin{equation}
+	\frac{\partial x_i}{\partial p_j}
+	+x_j\frac{\partial x_i}{\partial m} = S_{ij} = \frac{\partial h_i}{\partial p_j}
+\end{equation}
+
+thus
+\begin{equation}
+	\frac{\partial x_i}{\partial p_j} = 
+	\underbrace{\frac{\partial h_i}{\partial p_j}}_{\text{substitution effect}}
+	+
+	\underbrace{- x_j\frac{\partial x_i}{\partial m}}_{\text{income effect}}
+\end{equation}
+
+
+\section{Labor Supply and Intemporal Choice}
+
+
+\subsection{Present Values}
+\begin{equation}
+	c_1+c_2\frac{1}{1+r}=y_1+(1+r)y_2
+\end{equation}
+where $c_i$ is consumption at time $t$, $y_i$ amount spent and $r$ real interest rate $(1+r)=\frac{1+R}{1+i}$.
+
+Consumer at time $1$ can either save or borrow for/on period $2$.
+
+\begin{itemize}
+	\item if $r$ increase, consumer \textbf{saves} more
+	\item if $r$ decrease, consumer \textbf{borrows} more
+\end{itemize}
+
+\subsection{The $N$-period case}
+\begin{eqnarray}
+	\max U(c_1, c_2, ..., c_N) \\
+	 \text{s.t. }\\
+	\sum  \frac{1}{(1+r)^{i-1}}c_i = \sum \frac{1}{(1+r)^{i-1}}y_i
+\end{eqnarray}
+
+
+\section{Choice under Uncertainty}
+if we set: 
+\begin{itemize}
+	\item $c_a$: car accident
+	\item $c_{na}$ no car accident
+\end{itemize}
+$\pi_a$ and $\pi_{na}$ are the associated probabilities, in case of accident L\$ are lost.
+\begin{eqnarray}
+	c_{na} =& m\\
+	c_a =& m-L
+\end{eqnarray}
+after buying premium $\gamma K$
+
+\begin{eqnarray}
+	c_{na} =& m-\gamma K\\
+	c_a =& m-L -\gamma K + K = m-L+(1-\gamma)K
+\end{eqnarray}
+thus $K=\frac{1}{1-\gamma}(c_a-m+L)$ and
+\begin{equation}
+	c_{na} = \frac{m-\gamma L}{1-\gamma}-\frac{\gamma}{1-\gamma}c_a
+\end{equation}
+
+
+\subsection{competitive insurance (fair)}
+expected economic profit is zero
+\begin{equation}
+	\gamma K -\pi_aK-(1-\pi_a)0=(\gamma-\pi_a)K=0
+\end{equation}
+\begin{equation}
+	\gamma = \pi_a
+\end{equation}
+
+The rational choice must satisfy
+\begin{equation}
+	\frac{\gamma}{1-\gamma}=\frac{\pi_a}{1-\pi_a}=
+	\frac{\pi_a}{\underbrace{\pi_{na}}_{1-\pi_a}}\frac{MU(c_a)}{MU(c_{na})} 
+\end{equation}
+and thus
+\begin{equation}
+	MU(c_a) = MU(c_{na})
+\end{equation}
+
+\section{Market Demand}
+The consumer $i$'s ordinary demand function for commodity $j$ is 
+\begin{equation}
+	x_j^{*i}(\mathbf{p}, m)
+\end{equation}
+\subsection{Aggregate Demand}
+When all consumers are price takers, the market demand for commodity $j$ is
+\begin{equation}
+	X_j(\mathbf{p}, \mathbf{m}) = \sum_{i=1}^n x_j^{*i}(\mathbf{p}, m^i)
+\end{equation}
+
+If all consumers are identical then
+\begin{equation}
+	X_j(\mathbf{p}, M) = n\cdot x_j^*(\mathbf{p}, m)
+\end{equation}
+where $M=nm$ and $x^{*i}=x^*$ $\forall i$
+
+\subsection{Elasticity}
+\begin{equation}
+	\epsilon_{x,y} 
+	= \frac{\%\Delta x}{\%\Delta y} 
+	= \frac{\partial x}{\partial y}\frac{y}{x}
+	=\left |\frac{\partial \ln{(x)}}{\partial\ln{(y)}}\right |
+\end{equation}
+
+\subsection{Revenue and Own-Price Elasticity of demand}
+The seller's revenue is
+\begin{equation}
+	R(p) = p\cdot X^{*}(p)
+\end{equation}
+
+Variation around price is
+\begin{equation}
+	\frac{dR}{dp} = X^*(p)+p\frac{dX^*}{dp} = X^*(p)(1+\epsilon)
+\end{equation}
+
+
+\begin{itemize}
+	\item $\epsilon\in(-1,0)$, price rise cause revenue to rise
+	\item $\epsilon=-1$, price rise has no effect on revenue
+	\item $\epsilon<-1$ price rise causes revenue to fall
+\end{itemize}
+
+\subsection{Marginal Revenue}
+\begin{equation}
+	MR(q) = \frac{dR(q)}{dq} = p(q)\cdot\left(1+\frac{1}{\epsilon}\right)
+\end{equation}
+
+\section{The Producer}
+\subsection{Technology}
+A technology is a process by which inputs are converted to an output.
+
+
+\paragraph{Input bundle} % (fold)
+\label{par:input_bundle}
+\begin{equation}
+	\mathbf{x}=(x_1, x_2, ..., x_n)
+\end{equation}
+% paragraph input_bundle (end)
+
+\subsection{Production Functions}
+States the \textbf{maximum} amount of output possible from the input bundle
+\begin{equation}
+	y = f(x_1, ..., x_n)
+\end{equation}
+where $y$ is the level of output.
+
+
+\paragraph{Technology sets} % (fold)
+\label{par:technology_sets}
+A \textbf{production plan} is an input bundle and an output level:$(\mathbf{x}, y)$.
+A production plan is feasible if 
+\begin{equation}
+	y\leq f(\mathbf{x})
+\end{equation}
+
+The collection of all feasible production plan is called technology set.
+
+The technology set is
+\begin{equation}
+	T = \{(\mathbf{x}, y)|y\leq f(\mathbf{x})\text{ and } \mathbf{x}\geq0\}
+\end{equation}
+% paragraph technology_sets (end)
+
+\subsubsection{Example of technologies}
+\begin{itemize}
+	\item Cobb-Douglas Production function
+	\begin{equation}
+		y = A\prod_{i=1}^n x_i^{a_i}
+	\end{equation}
+	\item Fixed proportions (perfect complements)
+	\begin{equation}
+		y = \min(a_1x_1, ..., a_nx_n)
+	\end{equation}
+	\item Perfect substitutes
+	\begin{equation}
+		y = \sum_{i=1}^na_ix_i
+	\end{equation}
+\end{itemize}
+
+\subsection{Marginal Product}
+\begin{equation}
+	MP_i = \frac{\partial y}{\partial x_i}
+\end{equation}
+
+\subsection{Return-to-scale}
+\begin{equation}
+	f(k \mathbf{x})=kf(\mathbf{x})
+\end{equation}
+
+\begin{itemize}
+	\item Diminishing return-to-scale
+	\begin{equation}
+		f(k \mathbf{x})<kf(\mathbf{x})
+	\end{equation}
+	\item Increasing return-to-scale
+	\begin{equation}
+		f(k \mathbf{x})>kf(\mathbf{x})
+	\end{equation}
+\end{itemize}
+
+\subsection{Technical rate of substitution}
+\begin{equation}
+	\frac{dx_2}{dx_1} = \frac{\partial y/\partial x_1}{\partial y/\partial x_2}
+\end{equation}
+
+\subsection{Well-behaved technologies}
+is \textbf{monotonic} and \textbf{convex}
+
+\paragraph{Monotonic} % (fold)
+\label{par:monotonic}
+more of any input generates more output
+% paragraph monotonic (end)
+
+\section{Cost Minimization}
+\subsection{Cost minimization problem}
+\begin{equation}
+	\min w_1x_1+w_2x_2
+\end{equation}
+subject to $f(x_1,x_2)\geq y$
+
+\paragraph{Iso-cost lines} % (fold)
+\label{par:iso_cost_lines}
+\begin{equation}
+	x_1x_1+w_2x_2 = C
+\end{equation}
+% paragraph iso_cost_lines (end)
+
+
+\paragraph{Isoquant} % (fold)
+\label{par:isoquant}
+\begin{equation}
+	f(x_1,x_2)=C
+\end{equation}
+% paragraph isoquant (end)
+
+
+\paragraph{Firm's conditional demand for input 1} % (fold)
+\label{par:firm_s_conditional_demand_for_input_1}
+\begin{equation}
+	x_1^*(w_1, w_2, y)
+\end{equation}
+% paragraph firm_s_conditional_demand_for_input_1 (end)
+
+\paragraph{Firm's total cost function} % (fold)
+\label{par:firm_s_total_cost_function}
+\begin{equation}
+	c(w_1, w_2, y)
+\end{equation}
+% paragraph firm_s_total_cost_function (end)
+
+\paragraph{Average total cost} % (fold)
+\label{par:average_total_cost}
+\begin{equation}
+	AC = \frac{c(w_1,w_2,y)}{y}
+\end{equation}
+% paragraph average_total_cost (end)
+
+\subsection{Short-run and long-run}
+The short-run total cost minimization problem, is the long-term problem with the additional constraint:
+\begin{equation}
+	x_i = x_i' = C
+\end{equation}
+(one input can't be changed)
+
+\section{Profit Maximization}
+\subsection{Economic Profit}
+\begin{equation}
+	\Pi = \sum p_ix_i-w_ix_i
+\end{equation}
+
+\paragraph{Present value of firm} % (fold)
+\label{par:present_value_of_firm}
+\begin{equation}
+	PV = \sum \frac{1}{(1+r)^i}\Pi_i
+\end{equation}
+% paragraph present_value_of_firm (end)
+
+\subsection{Profit maximization problem}
+assuming one output, $y$
+\begin{equation}
+	\max py -\sum w_ix_i
+\end{equation}
+st $f(\mathbf{x})\geq = y$,  solving with the lagrangian gives
+\begin{equation}
+	\frac{\partial f}{\partial x_i}=\frac{w_i}{p}
+\end{equation}
+
+\subsection{Hotelling's Lemma}
+\begin{eqnarray}
+	y^*(p,w) &=&\frac{\partial \Pi}{\partial p}(p,w)\\
+	x_i^* &=& -\frac{\partial\Pi}{\partial w_i}(p,w)
+\end{eqnarray}
+similar as Roy's identity, for consumer's problem
+
+\subsection{Profit maximization and marginal cost}
+we have
+\begin{equation}
+	py - C(y,w)
+\end{equation}
+and thus
+\begin{equation}
+	\frac{\partial C}{\partial y}=p
+\end{equation}
+
+With constant return to scale, profit maximization gives $\Pi=0$
+
+\subsection{Revealed profitability}
+The firm's technology set must lie under all the iso profit lines
+
+\section{Monopoly}
+\subsection{Pure Monopoly}
+\begin{itemize}
+	\item Single seller
+	\item alter market price by altering output level
+\end{itemize}
+\textbf{Pareto ineficient}
+
+\subsection{Profit Maximization}
+\begin{equation}
+	\Pi(y) = p(y)y - c(y)
+\end{equation}
+where $p(y)$ is the inverse demand function.
+
+\begin{eqnarray}
+	\max_y \Pi &\Leftrightarrow&\\
+	\frac{d \Pi}{d y} &=& 0\\
+	&\Leftrightarrow&\\
+	MR &=& MC\\
+	p'y^*+p &=& c'\\
+	 p(y^*)(1+\frac{dp}{dy}\frac{y^*}{p}) &=&\frac{dc}{dy}\\
+	 p(y^*)(1+\frac{1}{\epsilon}) &=&\frac{dc}{dy}
+\end{eqnarray}
+where $\epsilon$ is the price-owner elasticity.
+
+\subsubsection{Markup pricing}
+Markup is the difference between the price and the marginal cost, that make up the profit
+\begin{equation}
+	p(y^*) - MC
+\end{equation}
+
+\subsection{Tax Levied on Monopolist}
+\subsubsection{Profit Tax}
+Monopolist has now to solve
+\begin{equation}
+\max_y	(1-t)\Pi(y) \Leftrightarrow \max_y \Pi(y)
+\end{equation}
+thus, \textbf{neutral tax}.
+
+\subsubsection{Quantity Tax}
+
+\begin{equation}
+	MC' = MC +t
+\end{equation}
+\begin{itemize}
+	\item higher price
+	\item less quantity
+\end{itemize}
+
+called \textbf{distortionary tax}
+
+
+\subsection{Natural Monopoly}
+Arises when firm's technology has economies-of-scale high enough to supply whole market.
+
+Can't set $MC=p$ because it implies $ATC>p \Rightarrow$ economic loss.
+
+\subsection{Price discrimnation}
+
+\subsubsection{First Degree}
+Each output sold at different price.
+
+Pareto Efficient.
+
+\subsubsection{Third degree}
+Supply different markets with different demands
+
+
+\section{Oligopoly}
+Oligopoly is an industry consisting of a few firms. Each firm's own price or output decisions affect its competitors profit.
+
+\subsection{Duopoly}
+\begin{equation}
+	\Pi_1(y_1|y_2) = p(y_1+y_2)y_1-c_1(y_1)
+\end{equation}
+Maximizing:
+\begin{equation}
+	\frac{\partial \Pi_1}{\partial y_1}=
+	p(y_1+y_2) + y_1\frac{\partial p(y_1+y_2)}{\partial y_1}
+	- \frac{dc}{dy_1}=0
+\end{equation}
+Solution is $y_1=R(y_2)$, same story for $\Pi_2$ that leads $y_2 = R(y_1)$.
+
+The solution $y_1^*=R(y_2^*)$ and $y_2^*=R(y_1^*)$ is called the \textbf{Cournot-Nash equilibrium} (quantity competition)
+
+
+\subsection{Bertrand Games}
+Price competitio, equilibrium is $p=p_1=p_2 = MC$.
+
+\end{document}
+
